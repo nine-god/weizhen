@@ -15,8 +15,8 @@
 
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -38,13 +38,20 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	        <li><%= link_to "首页" ,root_path , { title: "首页"}   %></li>
-	      	<li><%= link_to "产品与服务"   %></li>
-	      	<li><%= link_to "新闻中心"   %></li>
-	      	<li><%= link_to "关于唯真"   %></li>
+	      	<li><%= link_to "产品与服务" ,products_path  %></li>
+	      	<li><%= link_to "新闻中心" ,news_index_path  %></li>
+	      	<li><%= link_to "关于唯真"  ,home_about_path %></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li><%= link_to "东莞市唯真金属材料压延有限公司" , root_path %></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
     <%= yield %>
+    <hr>
+    <footer>
+        <p>© Company 2017</p>
+    </footer>
   </body>
 </html>
