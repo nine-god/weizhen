@@ -1,0 +1,22 @@
+
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-12">
+         
+          <div class="row">
+            <% @articles.each do |article| %>
+            <div class="col-xs-10 col-lg-10">
+              <h2><%= article.title %></h2>
+              <p><%= article.text %></p>
+              <p><%= link_to "查看详情 »" , article_path(article),{class: "btn btn-default" , role: "button"} %></p>
+            </div><!--/.col-xs-10.col-lg-10-->
+            <% end %>           
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+    </div><!--/.container-->
+
+

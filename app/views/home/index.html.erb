@@ -1,0 +1,31 @@
+
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12">
+        <%=  image_tag("home3.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "img-rounded img-responsive center-block") %>         
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+
+      <hr>
+        <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">产品与服务</a>
+            <% @articles.each do |article| %>
+            <%= link_to article.title, article_path(article) , {class: "list-group-item"} %>
+            <% end %>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+        <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">新闻中心</a>
+            <% @products.each do |product| %>
+            <%= link_to product.name, product_path(product) , {class: "list-group-item"} %>
+            <% end %>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+    </div><!--/.container-->
+
+
