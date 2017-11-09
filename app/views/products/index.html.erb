@@ -11,7 +11,12 @@
             <div class="col-xs-6 col-lg-4">
               <h2><%= product.name %></h2>
               <p><%= product.profile %></p>
-              <p><%= link_to "查看详情 »" , product_path(product),{class: "btn btn-default" , role: "button"} %></p>
+              <p><%= link_to "查看详情 »" , product_path(product),{class: "btn btn-default" , role: "button"} %>
+              <% if @manage %>
+              <%= link_to "delete" , product_path(product),{class: "btn btn-default" , role: "button"} %>
+              <% end %>
+              </p>
+
             </div><!--/.col-xs-6.col-lg-4-->
             <% end %>
           </div><!--/row-->

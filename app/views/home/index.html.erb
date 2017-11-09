@@ -12,7 +12,7 @@
       <hr>
         <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">产品与服务</a>
+            <a href="#" class="list-group-item active">新闻中心</a>
             <% @articles.each do |article| %>
             <%= link_to article.title, article_path(article) , {class: "list-group-item"} %>
             <% end %>
@@ -20,7 +20,7 @@
         </div><!--/.sidebar-offcanvas-->
         <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">新闻中心</a>
+            <a href="#" class="list-group-item active">产品与服务</a>
             <% @products.each do |product| %>
             <%= link_to product.name, product_path(product) , {class: "list-group-item"} %>
             <% end %>
