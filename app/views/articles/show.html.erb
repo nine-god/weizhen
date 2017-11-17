@@ -1,15 +1,24 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+	<h2 class="text-center" >
+	  <strong><%= @article.title %></strong>
+	  
+	</h2>
+  </div><!--/row-->
+  <div class="row">
+	<p class="text-left">
+	  <%= @article.text %>
+	</p>
+  </div><!--/row-->
+  <div class="row" >
+    <div class="text-center">
+		<% if user_signed_in?%>
+		<%= link_to '编辑', edit_article_path(@article),{class: "btn btn-default"} %> 
+		<% end %>
+	</div>
+  </div><!--/row-->
+</div><!--/.container-->
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
 
-<% if user_signed_in?%>
-<%= link_to 'Edit', edit_article_path(@article) %> 
-<% end %>
