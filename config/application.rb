@@ -12,7 +12,7 @@ module Weizhen
     config.load_defaults 5.1
     
     config.time_zone = 'Beijing'
-    config.active_record.default_timezone :local
+    config.active_record.default_timezone = :local
 
     config.assets.paths << Rails.root.join("lib")
     # Settings in config/environments/* take precedence over those specified here.
