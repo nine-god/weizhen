@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -37,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 
 # 用户系统
 gem 'devise'
+
+
+# gem 'bootstrap-wysihtml5-rails'
 
 
 group :development, :test do

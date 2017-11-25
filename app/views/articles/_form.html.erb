@@ -12,15 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label '标题' %>
     <%= form.text_field :title, id: :article_title %>
   </div>
 
   <div class="field">
     <%= form.label :text %>
-    <%= form.text_area :text, id: :article_text %>
+    <%= form.text_area :text, {id: :article_text  ,class: 'textarea'} %>
   </div>
-
   <div class="actions">
     <%= form.submit "保存"%>
   </div>
