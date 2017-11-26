@@ -10,7 +10,7 @@
             <% @products.each do |product|%>
             <div class="col-xs-6 col-lg-4" >
               <h2><%= product.name %></h2>
-              <p><%= product.profile[0..200] + '...' %></p>
+              <p><%= generate_abstract_tag(product.profile) %></p>
               <p><%= link_to "查看详情 »" , product_path(product),{class: "btn btn-default" , role: "button"} %>
               <% if @manage %>
               <%= link_to "delete" , product_path(product),{class: "btn btn-default" , role: "button"} %>

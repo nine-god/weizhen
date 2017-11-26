@@ -12,3 +12,28 @@
 //
 //= require rails-ujs
 //= require turbolinks
+function init_ueditor(){
+  
+  try
+  {
+  var ue = UE.getEditor('ueditor_container')
+  ue.setShow()
+  ue.render('ueditor_container');
+  }
+catch(err)
+  {
+  	// var ue = UE.getEditor('ueditor_container')
+  	console.log(err)
+  	// console.log(111)
+  //在这里处理错误
+  }
+
+  console.log(333)
+    // ue.render('ueditor_container');
+  // ue = UE.getEditor('ueditor_container')
+  // console.log(ue)
+  // if(ue){
+    // var ue = UE.getEditor('ueditor_container').render('ueditor_container');
+  // }
+  // console.log(222)
+};

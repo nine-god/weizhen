@@ -26,15 +26,11 @@
     <div class="row">
       <div class='col-sm-12'>
         <!-- 加载编辑器的容器 -->
-        <script id="container" name="content" type="text/plain"> <%= raw product.profile %></script>
-        <!-- 实例化编辑器 -->
-        <script type="text/javascript">
-            var ue = UE.getEditor('container');
-        </script>
+        <script id="ueditor_container" name="content" type="text/plain"> <%= raw product.profile %></script>
     </div>
     <div class="row">
-      <div class="actions">
-        <%= form.submit  "保存" ,{onclick: "sync_product_profile()"}%>
+      <div class="actions text-center">
+        <%= form.submit  "保存" ,{onclick: "sync_product_profile()",class: "btn btn-default"}%> <%= link_to '取消', product.id.nil? ? products_path : product , {class: "btn btn-default"} %>
       </div>
     </div>
   <% end %>
