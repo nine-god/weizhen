@@ -1,0 +1,2 @@
+module UeditorResourcesHelper
+end

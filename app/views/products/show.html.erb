@@ -15,6 +15,7 @@
 		<% if user_signed_in?%>
 		<%= link_to '编辑', edit_product_path(@product) ,{class: "btn btn-default"}%> 
 		<% end %>
+		<%= link_to '返回', products_path() ,{class: "btn btn-default"}%>
 	</div>
   </div><!--/row-->
 </div><!--/.container-->

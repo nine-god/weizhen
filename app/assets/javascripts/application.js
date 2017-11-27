@@ -27,5 +27,5 @@ catch(err)
   	// console.log(111)
   //在这里处理错误
   }
-
+  // console.log(UE.getEditor('ueditor_container').getOpt('serverUrl'))
 };
