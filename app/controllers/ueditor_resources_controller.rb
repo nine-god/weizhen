@@ -42,21 +42,36 @@ private
 
     class_type = split_url[1]
     class_type_id = split_url[2]
+
     filename = Time.now.strftime("%Y_%m_%d_%H_%M_%S_") + filename
     data = File.read(tempfile.path)
 
     base64_data = Base64.encode64(data) 
     image = Image.new
-      image.class_type= class_type,
-      image.class_type_id=class_type_id,
-      image.data= base64_data , 
-      image.name= filename
+    image.class_type = class_type
+    image.data = base64_data 
+    image.name = filename
     if class_type == "products"
+      if class_type_id = "new"
+         if Product.last.nil?
+           class_type_id = 0
+          else 
+            class_type_id = Product.last.id
+         end
+      end
       image.product_id = class_type_id
     end
     if class_type == "articles"
+      if class_type_id = "new"
+         if Article.last.nil?
+           class_type_id = 0
+          else 
+            class_type_id = Article.last.id
+         end
+      end
       image.article_id = class_type_id
     end
+    image.class_type_id = class_type_id
     image.save
 
     respond_result(

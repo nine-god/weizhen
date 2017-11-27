@@ -10,7 +10,7 @@
             <% @articles.each do |article| %>
             <div class="col-xs-10 col-lg-10">
               <h2><%= article.title %></h2>
-              <p><%= article.text[0..200] + '...' %></p>
+              <p><%= generate_abstract_tag(article.text) %></p>
               <p><%= link_to "查看详情 »" , article_path(article),{class: "btn btn-default" , role: "button"} %></p>
             </div><!--/.col-xs-10.col-lg-10-->
             <% end %>           
