@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>东莞市唯真金属材料压延有限公司</title>
-    <%= csrf_meta_tags %>
-    
-    <!-- 最新版本的 jquery 文件 -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<title>东莞市唯真金属材料压延有限公司</title>
+		<link rel="icon" href="logo1.ico">
+		<%= csrf_meta_tags %>
 
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- 最新版本的 jquery 文件 -->
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
-	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
-	<!-- 配置文件 -->
-	<script type="text/javascript" src="/plugins/ueditor/ueditor.config.min.js"></script>
-	<!-- 编辑器源码文件 -->
-	<script type="text/javascript" src="/plugins/ueditor/ueditor.all.min.js"></script>
+		<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- 配置文件 -->
+		<script type="text/javascript" src="/plugins/ueditor/ueditor.config.min.js"></script>
+		<!-- 编辑器源码文件 -->
+		<script type="text/javascript" src="/plugins/ueditor/ueditor.all.min.js"></script>
+
+		<%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
-	<nav class="navbar navbar-default">
-	  <div class="container">
+	<nav id="header" class="navbar">
+	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -38,18 +39,18 @@
 	        <span class="icon-bar"></span>
 	      </button>
 	      <%= link_to "东莞市唯真金属材料压延有限公司" , root_path , {class: "navbar-brand" , title: "首页"} %>
+
+
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li><%= link_to "首页" ,root_path , { title: "首页"}   %></li>
-	      	<li><%= link_to "产品与服务" ,products_path  %></li>
-	      	<li><%= link_to "新闻中心" ,articles_path  %></li>
-	      	<li><%= link_to "关于唯真"  ,home_path(@home) %></li>
-	      </ul>
 
-	      	      <ul class="nav navbar-nav navbar-right">
+
+	      <ul class="nav navbar-nav navbar-right">
+		    <li><%= link_to "新闻中心" ,articles_path  %></li>
+		    <li><%= link_to "投资者" ,articles_path  %></li>
+		    <li><%= link_to "加入我们" ,articles_path  %></li>
 	      	<% if user_signed_in? %>
 			  <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="caret"></span></a>
@@ -57,7 +58,8 @@
 		            <li><%= link_to '发布产品', new_product_path %></li>
 		            <li><%= link_to '发布新闻', new_article_path %></li>
 		          </ul>
-		      </li>			  <li class="dropdown">
+		      </li>			  
+		      <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 					<li><%= link_to '产品管理',products_path(manage: true) %></li>
@@ -78,23 +80,37 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-       <!-- <p class="notice"><%= notice %></p> -->
-       <!-- <p class="alert"><%= alert %></p> -->
-		<% if notice %>
-			<div class="alert alert-success alert-dismissible" role="alert">
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <strong>Well done!</strong> <%= notice %>
-			</div>
-		<% end %>
-		<% if alert %>
-			<div class="alert alert-danger alert-dismissible" role="alert">
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <strong>Oh snap!</strong> <%= alert %>
-			</div>
-		<% end %>
+	<nav id="nav" class="navbar">
+	  <div class="container-fluid">
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><%= link_to "首页" ,root_path , { title: "首页"}   %></li>
+	      	<li><%= link_to "产品与服务" ,products_path  %></li>
+	      	<li><%= link_to "关于唯真"  ,home_path(@home) %></li>
+	      </ul>
+
+
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<hr class="hr">
+	<% if notice %>
+		<div class="alert alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Well done!</strong> <%= notice %>
+		</div>
+	<% end %>
+	<% if alert %>
+		<div class="alert alert-danger alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Oh snap!</strong> <%= alert %>
+		</div>
+	<% end %>
     <%= yield %>
     <hr>
     <footer>
-        <p class="text-center" >© Company 2017</p>
+        <p class="text-center" >版权所有 © 2000-2017 东莞市唯真金属材料压延有限公司，保留一切权利。</p>
+        <p class="text-center" >粤ICP备xxxxxxxx号 粤公安备xxxxxxxx号</p>
     </footer>
   </body> 

@@ -1,0 +1,99 @@
+#home_index img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+#products,
+#news  {
+  padding-bottom:25px;
+}
+
+#news {
+  background: #0058a7;
+}
+
+#home_index .width75 {
+	/* width: 75%; */
+	max-width: 1190px;
+	margin: 0 auto;
+}
+
+#home_index .clear {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    clear: both;
+    height: 0;
+}
+
+#home_index .title {
+    font-size: 3em;
+    height: 3.2em;
+    line-height: 3.2em;
+    padding-left: 0.722em;
+    color: #000;
+}
+
+#products .item,
+#news .item {
+  width:31.5%;
+  float:left;
+  border:1px solid #727171;
+  margin-right:1.6%;
+  background: #fff;
+}
+
+#news .title {
+    color: #fff;
+}
+
+#products .item .content {
+	height: 13em;
+}
+
+#news .item .content {
+	height: 16.5em;
+	padding: 1.33333em;
+}
+
+#products .item .content h2,
+#news .item .content h2{
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+	font-size: 1.666666em;
+	padding-bottom: 0.5em;
+    font-weight: 500;
+    line-height: inherit;
+    margin: 0px;
+}
+#news .item .content h2{
+	height: 81px;
+	font-size: 20.25px;;
+	padding: 0em;
+}
+
+#products .item .content h3, #news .item .content h3 {
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+	font-size: 15.1833px;
+    font-weight: 500;
+    line-height: inherit;
+    height: 6em;
+    padding:0;
+    padding-bottom: 0.5em;
+    margin:0;
+}
+#news .item .content h3 {
+    height: 6em;
+}
+
+
+
+
+
+
+
+
+

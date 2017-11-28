@@ -10,5 +10,45 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_self
  */
+
+nav#header  {
+	background-color: #004EA2;
+	color:#FFFFFF;
+	}
+nav#header  a{
+	color:#FFFFFF;
+}
+nav#header.navbar {
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-top: 6px;
+    padding-bottom: 4px;
+}
+
+
+nav#nav  {
+	/*background-color: #004EA2;*/
+	/*color:#FFFFFF*/
+	margin-top: 10px;
+    margin-bottom: 2px;
+	}
+nav#nav  a{
+	color:#000000;
+	font-size: 1.5em;
+}
+nav#nav.navbar {
+    border-radius: 0px;
+
+}
+hr.hr{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+
+img.top_image {
+	border:none;
+	width:100%;
+}
+

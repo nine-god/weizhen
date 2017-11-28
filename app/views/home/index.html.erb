@@ -1,31 +1,96 @@
+<div id="home_index">
+  <%=  image_tag("home/home4.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
+
+  <div id="products">
+    <div class="width75">
+      <div class="title">服务</div>
+      <div class="item">
+        <a href="internet-it-service/it-crowdsourcing-service.shtml">
+        <%=  image_tag("home/product_pic1.jpg", alt: "IT众包服务") %>
+        </a>
+        <div class="content">
+          <h2>IT众包服务</h2>
+          <h3>解放号提供包括软件设计、开发、测试等，以及包括需求、签单、执行、验收等在内配套的商务流程与管理服务。</h3>
+          <p>
+            <a href="internet-it-service/it-crowdsourcing-service.shtml" class="">了解更多 &gt;</a>
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="technical-professional-service/services.shtml#DA_tag">
+        <%=  image_tag("home/product_pic2.jpg", alt: "数据分析服务") %>
+        </a>
+        <div class="content">
+          <h2>数据分析服务</h2>
+          <h3>中软国际在金融领域不断发力，围绕金融大数据的集成、存储、处理、洞察和服务，提供大数据全生命周期解决方案，激发金融的创新活力</h3>
+          <p>
+            <a href="technical-professional-service/services.shtml#DA_tag" class="">了解更多 &gt;</a>
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="internet-it-service/cloud-service.shtml">
+              <%=  image_tag("home/product_pic3.jpg", alt: "云服务") %>
+        </a>
+        <div class="content">
+          <h2>云服务</h2>
+          <h3>解决企业各类的云计算方面的需求问题，提供云存储，云数据迁移及运维服务，私有云建设等，帮助企业快速上云。</h3>
+          <p>
+            <a href="technical-professional-service/cloud-solutions.shtml" class="">了解更多 &gt;</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="clear">
+    </div>
+  </div>
 
 
-    <div class="container">
+  <div id="cao">
+    <div id="news">   
+      <div class="width75">   
+        <div class="title">新闻</div>              
 
-      <div class="row row-offcanvas row-offcanvas-right">
 
-        <div class="col-lg-12 col-xs-12 col-sm-12">
-        <%=  image_tag("home3.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "img-rounded img-responsive center-block") %>         
-        </div><!--/.col-xs-12.col-sm-9-->
-      </div><!--/row-->
+        <div class="item">
+          <div class="content">
+            <!--  p class="time">2017-11-27</p  -->
+            <h2>中软国际-华为云创新中心项目签约落户中国（南京）软件谷</h2>
+            <h3>
+      11月24日，中国（南京）软件谷管委会与中软国际、华为正式签署合作协议，中软国际-华为云创新中心项目签约落户中国（南京）软件谷。
 
-      <hr>
-        <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">新闻中心</a>
-            <% @articles.each do |article| %>
-            <%= link_to article.title, article_path(article) , {class: "list-group-item"} %>
-            <% end %>
+      南京市政协副主席</h3>
+            <p><a href="newsroom/news-artical.jsp?keyId=5249" class="">了解更多 &gt;</a></p>
+            </div>
           </div>
-        </div><!--/.sidebar-offcanvas-->
-        <div class="col-xs-12 col-sm-6 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">产品与服务</a>
-            <% @products.each do |product| %>
-            <%= link_to product.name, product_path(product) , {class: "list-group-item"} %>
-            <% end %>
+
+
+        <div class="item">
+          <div class="content">
+            <!--  p class="time">2017-11-27</p  -->
+            <h2>中软国际解放号云上软件园荣膺“2017中国智慧城市创新产品方案奖”</h2>
+            <h3>
+      11月18日，由中国电子商会、天津滨海新区人民政府主办，中国智慧城市产业联盟、天津市滨海新区商务委员会等单位承办的“2017第八届中国（天津滨</h3>
+            <p><a href="newsroom/news-artical.jsp?keyId=5248" class="">了解更多 &gt;</a></p>
+            </div>
           </div>
-        </div><!--/.sidebar-offcanvas-->
-    </div><!--/.container-->
 
 
+        <div class="item">
+          <div class="content">
+            <!--  p class="time">2017-11-13</p  -->
+            <h2>首届全球程序员节开幕　助力西安打造“丝路硅谷”</h2>
+            <h3>
+      11月9日，“首届全球程序员节”在西安开幕。省委常委、西安市委书记王永康通过现场编码的形式宣布首届全球程序员节·西安</h3>
+            <p><a href="newsroom/news-artical.jsp?keyId=5240" class="">了解更多 &gt;</a></p>
+            </div>
+          </div>
+
+        </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
+</div>
