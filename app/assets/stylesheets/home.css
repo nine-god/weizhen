@@ -64,6 +64,7 @@
 #news .item .content h2{
 	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
 	font-size: 1.666666em;
+	font-weight:bold;
 	padding-bottom: 0.5em;
     font-weight: 500;
     line-height: inherit;
