@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     @home = Home.first
-    @articles = Article.all.limit(5)
-    @products = Product.all.limit(5)
+    @articles = Article.all.order('created_at DESC').limit(3)
+    @products = Product.all.order('created_at ASC').limit(3)
   end
   def show
   	 
