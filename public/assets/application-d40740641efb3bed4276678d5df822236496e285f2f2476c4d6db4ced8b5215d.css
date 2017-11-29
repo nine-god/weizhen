@@ -17,10 +17,8 @@ nav#header  {
 	background-color: #004EA2;
 	color:#FFFFFF;
 	}
-nav#header  a{
-	color:#FFFFFF;
-}
-nav#header a:hover {
+
+nav#header a {
 	color:#FFFFFF;
 	background-color: #004EA2;
 }
@@ -32,14 +30,19 @@ nav#header ul{
 nav#header li {
 	background-color: #004EA2;
 }
+nav#header  a:visited{
+	color:#FFFFFF;
+}
 /*a:link {text-decoration:none;}
 a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:underline;}*/
+
 nav#header ul li ul li a:hover ,nav#header ul li ul li a:active {
-	color:#FFFFFF;
+	color:#000000;
 	background-color: #004EA2;
 }
+
 
 nav#header.navbar {
     border-radius: 0px;
