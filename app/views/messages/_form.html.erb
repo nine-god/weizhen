@@ -1,0 +1,75 @@
+<div id="message_new" class="container">
+  <%= form_with(model: message, local: true) do |form| %>
+    <% if message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+        <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+  <tbody>
+    <tr>
+      <div class="form-inline">
+        <th>
+        <div class="form-group">
+          <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
+          <%= form.text_field :title, {id: :message_title,class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>
+        </th>
+        <th>
+
+        <div class="form-group">
+          <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+          <%= form.text_field :username, {id: :message_username,class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>   
+        </th> 
+      </div>
+    </tr>
+    <tr>
+      <div class="form-inline">
+        <div class="form-group">
+      <%= form.label "联系电话" %>
+      <%= form.text_field :tel, {id: :message_tel,class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>
+        <div class="form-group">
+      <%= form.label "电子邮箱" %>
+      <%= form.text_field :email, {id: :message_email,class: "form-control"} %>
+        </div>    
+      </div>
+    </tr>
+    <tr>
+      <div class="form-inline">
+        <div class="form-group">
+      <%= form.label "公司名称" %>
+      <%= form.text_field :company, {id: :message_company,class: "form-control"} %><font>&nbsp;&nbsp;&nbsp;</font>
+        </div>
+        <div class="form-group">
+        <label>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</label>
+
+        <%= form.text_field :address, {id: :message_address,class: "form-control"} %>
+        </div>    
+      </div>
+    </tr>
+    <tr>
+      <%= form.label "留  言" %>
+      <%= form.text_area :text, {id: :message_text,class: "form-control"} %>
+    </tr>
+  </tbody>
+    <div class="actions">
+    <%= form.submit  "提交" ,{class: "btn btn-default"}%>
+    <% if user_signed_in? %>
+      <%= link_to '取消', messages_path ,{class: "btn btn-default"}%> 
+    <% else %>
+      <%= link_to '取消', root_path, {class: "btn btn-default"} %>
+    <% end %>
+    
+
+    </div>
+  <% end %>
+</div>

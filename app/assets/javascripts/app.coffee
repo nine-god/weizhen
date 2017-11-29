@@ -1,6 +1,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require application
+//= require home
 //= require product
 //= require article
 

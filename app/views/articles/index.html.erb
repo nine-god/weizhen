@@ -11,7 +11,12 @@
             <div class="col-xs-10 col-lg-10">
               <h2><%= article.title %></h2>
               <p><%= generate_abstract_tag(article.text) %></p>
-              <p><%= link_to "查看详情 »" , article_path(article),{class: "btn btn-default" , role: "button"} %></p>
+              <p>
+                <%= link_to "查看详情 »" , article_path(article),{class: "btn btn-default" , role: "button"} %>
+                <% if @manage %>
+                <%= link_to '删除', article_path(article),{method: :delete, class: "btn btn-default" , role: "button",data: { confirm: '删除后不可恢复，确认需要删除吗？' } }%>
+                <% end %>
+              </p>
             </div><!--/.col-xs-10.col-lg-10-->
             <% end %>           
           </div><!--/row-->

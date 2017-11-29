@@ -1,0 +1,58 @@
+<div id="message_show" class="container">
+  <tbody>
+    <fieldset disabled>
+    <tr>
+      <div class="form-inline">
+        <th>
+        <div class="form-group">
+          <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
+          <%= text_field_tag "",@message.title, {class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>
+        </th>
+        <th>
+
+        <div class="form-group">
+          <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+          <%= text_field_tag "",@message.username, {class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>   
+        </th> 
+      </div>
+    </tr>
+    <tr>
+      <div class="form-inline">
+        <div class="form-group">
+      <%= label_tag "联系电话" %>
+      <%= text_field_tag "",@message.tel, {class: "form-control"} %><font color="#ff0000">&nbsp;*&nbsp;</font>
+        </div>
+        <div class="form-group">
+      <%= label_tag "电子邮箱" %>
+      <%= text_field_tag "",@message.email, {class: "form-control"} %>
+        </div>    
+      </div>
+    </tr>
+    <tr>
+      <div class="form-inline">
+        <div class="form-group">
+      <%= label_tag "公司名称" %>
+      <%= text_field_tag "",@message.company, {class: "form-control"} %><font>&nbsp;&nbsp;&nbsp;</font>
+        </div>
+        <div class="form-group">
+        <label>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</label>
+
+        <%= text_field_tag "",@message.address, {class: "form-control"} %>
+        </div>    
+      </div>
+    </tr>
+    <tr>
+      <%= label_tag "留  言" %>
+      <%= text_area_tag "",@message.text, {class: "form-control"} %>
+    </tr>
+    </fieldset>
+  </tbody>
+  <%= link_to '修改', edit_message_path(@message), {class: "btn btn-default"} %>
+  <% if user_signed_in? %>
+    <%= link_to '返回列表', messages_path ,{class: "btn btn-default"}%> 
+  <% else %>
+    <%= link_to '返回首页', root_path, {class: "btn btn-default"} %>
+  <% end %>
+</div>

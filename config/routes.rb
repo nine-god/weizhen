@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages #, except:[:edits,:update]
   resources :articles
   devise_for :users
   resources :users
