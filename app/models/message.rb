@@ -1,7 +1,4 @@
 class Message < ApplicationRecord
-	@hash = {
-		title: "22222"
-	}
 	validates :title, presence: { message: "<标题> 不能空白哦！" },length: { maximum: 20 ,message: "<标题> 写的太长了哦～"}
 	validates :username, presence: { message: "<姓名> 不能空白哦！" }, length: { maximum: 20,message: "<姓名> 写的太长了哦～" }
 	validates :tel, presence: { message: "<联系电话> 不能空白哦！" }, length: { maximum: 20 ,message: "<联系电话> 写的太长了哦～"}

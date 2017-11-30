@@ -2,13 +2,14 @@
   <%= form_with(model: product, local: true) do |form| %>
     <% if product.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-        <ul>
-        <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+ 
+        <% product.errors.messages.each do |message| %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+             <%= message[1][0] %>
+          </div>
         <% end %>
-        </ul>
+
       </div>
     <% end %>
     <div class="row">
