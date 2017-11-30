@@ -73,7 +73,6 @@ class ProductsController < ApplicationController
             tmp.path # => /tmp/tmp20110928-12389-8yyc6w  
             tmp.syswrite(source_data)  
             tmp.close  
-            p tmp.methods
             mini_magick = create_mini_image(tmp)
             data = File.read(mini_magick.path)
             base64_data = Base64.encode64(data) 

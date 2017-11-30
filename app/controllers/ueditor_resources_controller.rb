@@ -22,15 +22,29 @@ class UeditorResourcesController < ApplicationController
   end
   def show_image
     filename = params[:filename]
-    image = Image.where(
-      class_type: params[:class_type],
-      class_type_id:params[:class_type_id],
-      name: filename
-      ).first
-    source_data = Base64.decode64(image.data)
+    class_type = params[:class_type]
+    class_type_id = params[:class_type_id]
+    file_dir = "#{Rails.root}/public/images_tempfile/#{class_type}/#{class_type_id}"
+    file_path = file_dir + filename
+    if File::exist?( file_path)
+      source_data = File.read(file_path)
+    else
+      image = Image.where(
+        class_type: class_type,
+        class_type_id:class_type_id,
+        name: filename
+        ).first
+      source_data = Base64.decode64(image.data)
+
+      create_dir(file_dir)
+
+      image_file = File.new(file_path, "w")
+      image_file.syswrite(source_data)
+      image_file.close
+
+    end
     send_data( source_data, :filename => filename )
   end
-
 
 private
 
@@ -102,5 +116,18 @@ private
   end
 
     render json: response_json
+  end
+  def create_dir(path)
+      root = []
+      arr = path.split("/").each{|each_path| 
+        each_path
+        root << each_path
+        rs_path = root.join("/")
+        unless Dir.exist?(rs_path)
+          next if rs_path == ""
+          Dir::mkdir(rs_path)
+        end
+      }
+
   end
 end

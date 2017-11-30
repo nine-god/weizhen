@@ -9,6 +9,8 @@
 
 # 忽略掉迁移记录
 /db/schema.rb
+# #忽略掉images缓存
+/public/images_tempfile
 
 # Ignore all logfiles and tempfiles.
 /log/*
