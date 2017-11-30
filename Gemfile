@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # 用户系统
 gem 'devise'
 
+#照片处理
+gem "mini_magick"
 
 # gem 'bootstrap-wysihtml5-rails'
 

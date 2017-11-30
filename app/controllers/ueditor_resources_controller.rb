@@ -41,6 +41,7 @@ private
     filename = params[:upfile].original_filename
     split_url = params[:location_url].split("/")
 
+
     class_type = split_url[1]
     class_type_id = split_url[2]
 
@@ -53,7 +54,7 @@ private
     image.data = base64_data 
     image.name = filename
     if class_type == "products"
-      if class_type_id = "new"
+      if class_type_id == "new"
          if Product.last.nil?
            class_type_id = 0
           else 
@@ -63,7 +64,7 @@ private
       image.product_id = class_type_id
     end
     if class_type == "articles"
-      if class_type_id = "new"
+      if class_type_id == "new"
          if Article.last.nil?
            class_type_id = 0
           else 
@@ -97,7 +98,7 @@ private
       response_json[:originalName]= filename 
       response_json[:size]= File.size(tempfile) 
       response_json[:type]= File.extname(filename) 
-      response_json[:url]= "http://#{request.host_with_port}/ueditor_resources/show_image?&&filename=#{filename}&class_type=#{class_type}&class_type_id=#{class_type_id}" 
+      response_json[:url]= "http://#{request.host_with_port}/ueditor_resources/show_image?filename=#{filename}&class_type=#{class_type}&class_type_id=#{class_type_id}" 
   end
 
     render json: response_json

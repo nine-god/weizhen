@@ -4,9 +4,10 @@
   <div id="products">
     <div class="width75">
       <div class="title">产品</div>
-      <% @products.each do |product|%>
+      <% @products.each_with_index do |product,index|%>
         <div class="item">
-          <%= link_to image_tag("home/product_pic4.jpg", alt:  product.name), product_path(product) %>
+          <%= link_to raw("<img alt='#{product.name}' src=#{@images[index]}>"), product_path(product) %>
+          <% link_to image_tag("home/product_pic4.jpg", alt:  product.name), product_path(product) %>
           <div class="content">
             <h2><%= product.name%></h2>
             <h3><%= generate_abstract_tag(product.profile,85) %></h3>
