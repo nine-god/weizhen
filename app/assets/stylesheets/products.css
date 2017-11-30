@@ -1,0 +1,85 @@
+#products_index img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+#products {
+  padding-bottom:25px;
+}
+
+
+
+#products_index .width75 {
+	/* width: 75%; */
+	max-width: 1190px;
+	margin: 0 auto;
+}
+
+#products_index .clear {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    clear: both;
+    height: 0;
+}
+
+#products_index .title {
+    font-size: 3em;
+    height: 3.2em;
+    line-height: 3.2em;
+    padding-left: 0.722em;
+    color: #000;
+}
+
+#products .item{
+  width:31.5%;
+  float:left;
+  margin-right:1.6%;
+  border:1px solid #727171;
+  margin-bottom:1.6%;
+  background: #fff;
+}
+
+
+
+#products .item .content {
+	height: 13em;
+  padding: 1.33333em;
+}
+
+
+
+#products .item .content h2{
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+	font-size: 1.666666em;
+	font-weight:bold;
+	padding-bottom: 0.5em;
+    font-weight: 500;
+    line-height: inherit;
+    margin: 0px;
+}
+
+
+#products .item .content h3 {
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+	font-size: 15.1833px;
+    font-weight: 500;
+    line-height: inherit;
+    height: 6em;
+    padding:0;
+    padding-bottom: 0.5em;
+    margin:0;
+}
+
+
+
+
+
+
+
+
+

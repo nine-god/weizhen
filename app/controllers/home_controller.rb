@@ -13,7 +13,7 @@ class HomeController < ApplicationController
           @images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=products&class_type_id=#{product.id}"
         end
       end
-  end
+    end
   def show
   	 
   end

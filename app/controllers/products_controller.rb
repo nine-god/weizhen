@@ -8,7 +8,16 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @manage = params[:manage]
-
+    @images=[]
+    @products.each_with_index do |product,index| 
+        image = Image.where(id: product.image_id).first
+        if image.nil?
+          @images[index] = "/default_product.jpg"
+        else
+          @images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=products&class_type_id=#{product.id}"
+        end
+      
+    end
 
   end
 
