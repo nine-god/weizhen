@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!,only: [:update]
   def index
     @home = Home.first
     @articles = Article.all.order('created_at DESC').limit(3)

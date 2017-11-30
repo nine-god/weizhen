@@ -44,15 +44,24 @@
       </div>
     </tr>
     <tr>
-      <%= label_tag "留  言" %>
-      <%= text_area_tag "",@message.text, {class: "form-control"} %>
+      <div class="form-inline">
+        <div class="form-group">
+        <label>留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言</label>
+        <%= text_area_tag "",@message.text, {class: "form-control",rows: 6 ,cols:55} %>
+        </div>
+      </div>
     </tr>
     </fieldset>
+    <tr>
+      <div class="form-inline">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <% if user_signed_in? %>
+            <%= link_to '修改', edit_message_path(@message), {class: "btn btn-default"} %>
+            <%= link_to '返回列表', messages_path ,{class: "btn btn-default"}%> 
+          <% else %>
+            <%= link_to '返回首页', root_path, {class: "btn btn-default"} %>
+          <% end %>
+      </div>
+    </tr>
   </tbody>
-  <%= link_to '修改', edit_message_path(@message), {class: "btn btn-default"} %>
-  <% if user_signed_in? %>
-    <%= link_to '返回列表', messages_path ,{class: "btn btn-default"}%> 
-  <% else %>
-    <%= link_to '返回首页', root_path, {class: "btn btn-default"} %>
-  <% end %>
 </div>

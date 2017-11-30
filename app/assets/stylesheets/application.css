@@ -76,3 +76,6 @@ img.top_image {
 	width:100%;
 }
 
+#error_explanation {
+	color:#ff0000;
+}

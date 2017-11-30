@@ -1,5 +1,6 @@
 require 'base64'
 class UeditorResourcesController < ApplicationController
+  before_action :authenticate_user!,except: [:show]
   protect_from_forgery :only => [:handle_file] 
   def handle_file
     #ueditor是通过在url中的传入ueditor_action（原本为action，但是由于其与rails冲突，所以我将其改为了ueditor_action）字段来区分具体的操作的
