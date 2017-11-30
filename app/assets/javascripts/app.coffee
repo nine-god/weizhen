@@ -6,7 +6,7 @@
 //= require article
 
 $(document).on "turbolinks:load", ->
-  if $('#ueditor_container').length >0
+  if $("script.ueditor_container_script").length >0
     init_ueditor()
 
 

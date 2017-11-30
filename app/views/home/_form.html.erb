@@ -26,12 +26,13 @@
     </div>
     <div class="row">
       <div class='col-sm-12'>
+      <% ueditor_container_id = home.id? ? "ueditor_container_#{home.id}" : "ueditor_container_home_new"%>
         <!-- 加载编辑器的容器 -->
-        <script id="ueditor_container" name="content" type="text/plain"> <%= raw home.profile %></script>
+        <script id="ueditor_container" class="ueditor_container_script" name="content" type="text/plain"> <%= raw home.profile %></script>
     </div>
     <div class="row">
       <div class="actions text-center">
-        <%= form.submit  "保存" ,{onclick: "sync_home_profile()",class: "btn btn-default"}%> <%= link_to '取消', home.id.nil? ? home_path : home , {class: "btn btn-default"} %>
+        <%= form.submit  "保存" ,{onclick: "sync_home_profile('#{ueditor_container_id}')",class: "btn btn-default"}%> <%= link_to '取消', home.id.nil? ? home_path : home , {class: "btn btn-default"} %>
       </div>
     </div>
   <% end %>

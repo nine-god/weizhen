@@ -1,4 +1,4 @@
-function sync_article_text(){
-	var ue = UE.getEditor('ueditor_container');
+function sync_article_text(ueditor_container_id){
+	var ue = UE.getEditor(ueditor_container_id);
 	$('textarea[name="article[text]"]').html(ue.getContent());
 };

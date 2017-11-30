@@ -13,12 +13,15 @@
 //= require rails-ujs
 //= require turbolinks
 function init_ueditor(){
-  
+  // console.log("111")
+  // console.log($("script.ueditor_container_script"))
+  var ueditor_container_script = $("script.ueditor_container_script")
+  // console.log(ueditor_container_script[0].id)
   try
   {
-  var ue = UE.getEditor('ueditor_container')
+  var ue = UE.getEditor(ueditor_container_script[0].id)
   ue.setShow()
-  ue.render('ueditor_container');
+  ue.render(ueditor_container_script[0].id);
   }
 catch(err)
   {

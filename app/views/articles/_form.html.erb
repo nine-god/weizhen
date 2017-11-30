@@ -15,24 +15,25 @@
     <% end %>
     <div class="row">
       <div class="field">
-        <%= form.label '标题' %>
+        <%= form.label '新闻标题' %>
         <%= form.text_field :title, id: :article_title %>
       </div>
     </div>
     <div class="row">
       <div class="field">
-        <%= form.label '内容' %>
+        <%= form.label '新闻内容' %>
         <%= form.text_area :text,  { id: :article_text , hidden: true}%>
       </div>
     </div>
     <div class="row">
       <div class='col-sm-12'>
+      <% ueditor_container_id = article.id? ? "ueditor_container_#{article.id}" : "ueditor_container_article_new"%>
         <!-- 加载编辑器的容器 -->
-        <script id="ueditor_container" name="content" type="text/plain"> <%= raw article.text %></script>
+        <script id=<%= ueditor_container_id %> class="ueditor_container_script"  name="content" type="text/plain"> <%= raw article.text %></script>
     </div>
     <div class="row">
       <div class="actions text-center">
-        <%= form.submit  "保存" ,{onclick: "sync_article_text()",class: "btn btn-default"}%> <%= link_to '取消', article.id.nil? ? articles_path : article , {class: "btn btn-default"} %>
+        <%= form.submit  "保存" ,{onclick: "sync_article_text('#{ueditor_container_id}')",class: "btn btn-default"}%> <%= link_to '取消', article.id.nil? ? articles_path : article , {class: "btn btn-default"} %>
       </div>
     </div>
   <% end %>
