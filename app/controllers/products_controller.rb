@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @manage = params[:manage]
     @images=[]
     @products.each_with_index do |product,index| 
-        image = Image.where(id: product.image_id).first
+        image = Image.where(id: product.image_id).order('updated_at desc').first
         if image.nil?
           @images[index] = "/default_product.jpg"
         else
@@ -42,6 +42,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        mini_image_id = create_or_update_mini_miage(product_id: @product.id ,profile: params[:product][:profile])
+        @product.reload
+        @product.update(image_id: mini_image_id)
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -56,63 +60,9 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-
-          profile = params[:product][:profile]
-          index = profile.index("ueditor_resources/show_image?")
-          
-          if index
-            rindex = profile[index..profile.size-1].index("\" alt=\"\"/>")
-            # "ueditor_resources/show_image?filename=2017_11_30_16_04_28_product_pic4.jpg&class_type=products&class_type_id=15
-            img_html = profile[(index+29)..(index+rindex-1)] 
-            
-            arr = img_html.split("&")
-            filename = arr[0].split("=")[1]
-            class_type = arr[1].split("=")[1]
-            class_type_id = arr[2].split("=")[1]
-
-            image = Image.where(
-              class_type: class_type,
-              class_type_id:class_type_id,
-              name: filename
-              ).first
-            source_data = Base64.decode64(image.data)
-        
-
-            tmp = Tempfile.new("#{@product.id}.jpg")  
-            tmp.path # => /tmp/tmp20110928-12389-8yyc6w  
-            tmp.syswrite(source_data)  
-            tmp.close  
-            mini_magick = create_mini_image(tmp)
-            data = File.read(mini_magick.path)
-            base64_data = Base64.encode64(data) 
-
-            mini_image = Image.where(
-              class_type: "products",
-              class_type_id: @product.id,
-              name: "mini_"+"#{@product.id}.jpg"
-              ).first
-            if mini_image.nil?
-              mini_image = Image.create(
-                class_type: "products",
-                class_type_id: @product.id,
-                product_id: @product.id,
-                name: "mini_"+"#{@product.id}.jpg"
-              )
-            end
-            mini_image.update(data:base64_data)
-            @product.update(image_id: mini_image.id)
-
-
-            tmp.unlink # => 删除文件 
-          end
-          if index.nil?
-            mini_image = Image.where(
-              class_type: "products",
-              class_type_id: @product.id,
-              name: "mini_"+"#{@product.id}.jpg"
-              ).first
-            mini_image.destroy if mini_image
-          end
+        mini_image_id = create_or_update_mini_miage(product_id: @product.id ,profile: params[:product][:profile])
+        @product.reload
+        @product.update(image_id: mini_image_id)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -159,7 +109,66 @@ class ProductsController < ApplicationController
       return mini_magick
     end
 
-    def calc_mini_image(height,width)
-      return [height,width]
+    def create_or_update_mini_miage(args={})
+        product_id = args[:product_id]
+        profile = args[:profile]
+
+
+        index = profile.index("ueditor_resources/show_image?")
+        
+        if index
+          rindex = profile[index..profile.size-1].index("\" alt=\"\"/>")
+          # "ueditor_resources/show_image?filename=2017_11_30_16_04_28_product_pic4.jpg&class_type=products&class_type_id=15
+          img_html = profile[(index+29)..(index+rindex-1)] 
+          arr = img_html.split("&")
+          filename = arr[0].split("=")[1]
+          class_type = arr[1].split("=")[1]
+          class_type_id = arr[2].split("=")[1]
+
+          image = Image.where(
+            class_type: class_type,
+            class_type_id:class_type_id,
+            name: filename
+            ).first
+          source_data = Base64.decode64(image.data)
+      
+
+          tmp = Tempfile.new("#{product_id}.jpg")  
+          tmp.path # => /tmp/tmp20110928-12389-8yyc6w  
+          tmp.syswrite(source_data)  
+          tmp.close  
+          mini_magick = create_mini_image(tmp)
+          data = File.read(mini_magick.path)
+          base64_data = Base64.encode64(data) 
+
+          mini_image = Image.where(
+            class_type: "products",
+            class_type_id: product_id,
+            product_id: product_id
+            ).where("name like 'mini_%'").first
+          unless  mini_image.nil?
+            mini_image.destroy
+          end
+          mini_image = Image.create(
+              class_type: "products",
+              class_type_id: product_id,
+              product_id: product_id,
+              name: "mini_" + Time.now.strftime("%Y_%m_%d_%H_%M_%S_") + "#{product_id}.jpg"
+            )
+          mini_image.update(data:base64_data)
+
+          mini_image_id = mini_image.id
+          tmp.unlink # => 删除文件 
+        end
+        if index.nil?
+          mini_image = Image.where(
+            class_type: "products",
+            class_type_id: product_id,
+            product_id: product_id
+            ).where("name like 'mini_%'").first
+          mini_image.destroy if mini_image
+          mini_image_id = nil 
+        end
+        return mini_image_id
     end
 end

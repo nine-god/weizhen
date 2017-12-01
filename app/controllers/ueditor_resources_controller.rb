@@ -60,7 +60,9 @@ private
     class_type_id = split_url[2]
 
     filename = Time.now.strftime("%Y_%m_%d_%H_%M_%S_") + filename
-    data = File.read(tempfile.path)
+
+    mini_image = create_mini_image(tempfile)
+    data = File.read(mini_image.path)
 
     base64_data = Base64.encode64(data) 
     image = Image.new
@@ -129,5 +131,20 @@ private
         end
       }
 
+  end
+
+ def create_mini_image(tmp)
+    mini_magick = MiniMagick::Image.open(tmp.path)
+    mini_magick.path
+    w,h = mini_magick[:width],mini_magick[:height] #=> [2048, 1536]
+    if w >1000
+      mini_magick.resize "#{w*(1000.0/w)}x#{h*(1000.0/w)}"
+    end
+    w,h = mini_magick[:width],mini_magick[:height] #=> [2048, 1536]
+
+    if h > 1000
+      mini_magick.resize "#{w*(1000.0/h)}x#{h*(1000.0/h)}"
+    end
+    return mini_magick
   end
 end

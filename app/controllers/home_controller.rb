@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @products = Product.all.order('created_at ASC').limit(3)
     @images=[]
     @products.each_with_index do |product,index| 
-        image = Image.where(id: product.image_id).first
+        image = Image.where(id: product.image_id).order('updated_at desc').first
         if image.nil?
           @images[index] = "/default_product.jpg"
         else
@@ -18,8 +18,6 @@ class HomeController < ApplicationController
   	 
   end
   def update
-    p params[:home][:profile]
-    p "1"*88
     respond_to do |format|
       if @home.update(home_params)
         format.html { redirect_to @home, notice: 'home was successfully updated.' }
