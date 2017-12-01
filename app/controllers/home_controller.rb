@@ -18,6 +18,8 @@ class HomeController < ApplicationController
   	 
   end
   def update
+    p params[:home][:profile]
+    p "1"*88
     respond_to do |format|
       if @home.update(home_params)
         format.html { redirect_to @home, notice: 'home was successfully updated.' }
