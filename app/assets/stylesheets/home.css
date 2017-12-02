@@ -18,9 +18,25 @@
 
 
 
+#box_main_sub1 {
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  background-repeat:no-repeat;
+  background-position:center;
+  width: 100%;
 
-#box_main_sub2, #box_main_sub3, #box_main_sub4, #box_main_sub5 {
-    background: url("/images/sy-cpzx-bt.jpg") no-repeat scroll center 110px;
+  /*width: 90%;*/
+}
+#box_main_sub1_sub1 {
+  float: left;
+  width: 100%;
+
+}
+#box_main_sub2,
+#box_main_sub3,
+#box_main_sub4,
+#box_main_sub5 {
+    background: url("") no-repeat scroll center 110px;
     float: none;
     padding-top: 240px;
     width: 100%;

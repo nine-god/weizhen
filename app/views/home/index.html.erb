@@ -1,12 +1,16 @@
 <div id="home_index">
   <%=  image_tag("home/home5.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
-  <div id="box_main_sub1" >
+
+  <div id="box_main_sub1"  >
     <div id="box_main_sub1_sub1">
       <%=  image_tag("home/home6.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
     </div>
+    <div class="clear">
   </div>
+
   <div id="box_main_sub2" style="background-image:url(<%= image_url "products/product_center.jpg" %>)"  >
   </div>
+
   <div id="products">
     <div class="width75">
       <% @products.each_with_index do |product,index|%>
