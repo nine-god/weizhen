@@ -1,9 +1,14 @@
 <div id="home_index">
-  <%=  image_tag("home/home4.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
-
+  <%=  image_tag("home/home5.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
+  <div id="box_main_sub1" >
+    <div id="box_main_sub1_sub1">
+      <%=  image_tag("home/home6.jpg", alt: "东莞市唯真金属材料压延有限公司logo",class: "top_image") %>  
+    </div>
+  </div>
+  <div id="box_main_sub2" style="background-image:url(<%= image_url "products/product_center.jpg" %>)"  >
+  </div>
   <div id="products">
     <div class="width75">
-      <div class="title">产品</div>
       <% @products.each_with_index do |product,index|%>
         <div class="item">
           <%= link_to raw("<img alt='#{product.name}' src=#{@images[index]}>"), product_path(product) %>
@@ -21,11 +26,11 @@
     </div>
   </div>
 
-
+  <div id="box_main_sub3" style="background-image:url(<%= image_url "news/news.jpg" %>)"  >
+  </div>
   <div id="cao">
     <div id="news">   
-      <div class="width75">   
-        <div class="title">新闻</div>              
+      <div class="width75">                
           <% @articles.each do |article|%>
             <div class="item">
               <div class="content">
@@ -42,5 +47,25 @@
     </div>
   </div>
 
-
+  <div id="box_main_sub5" style="background-image:url(<%= image_url "home/about_us.jpg" %>)"> 
+      <div id="box_main_sub5_sub1">
+        <div>
+          <div class="tu1">
+            <%= link_to image_tag("home/home_about_us_1.jpg", alt:  "logo" ), root_path,{ } %>
+          </div>
+          <div class="tu2">
+            <%= link_to image_tag("home/home_about_us_2.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/home_about_us_3.jpg", alt:  "logo" ), root_path,{ } %>
+          </div>
+          <div class="tu3">
+            <%= link_to image_tag("home/home_about_us_4.jpg", alt:  "logo" ), root_path,{ } %>
+          </div>
+          <div class="tu4">
+            <%= link_to image_tag("home/home_about_us_5.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/home_about_us_6.jpg", alt:  "logo" ), root_path,{ } %>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div> 
 </div>
