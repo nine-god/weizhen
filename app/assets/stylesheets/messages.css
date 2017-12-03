@@ -1,3 +1,9 @@
+#message_new {
+ 	max-width: 700px;
+	margin: 0 auto 0 auto;
+
+
+}
 #message_new .form-inline,
 #message_show .form-inline {
 	padding:1em;

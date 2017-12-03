@@ -4,8 +4,17 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at desc')
     @manage = params[:manage]
+    @images=[]
+    @articles.each_with_index do |article,index| 
+      image = Image.where(id: article.image_id).order('updated_at desc').first
+      if image.nil?
+        @images[index] = "/default_article.jpg"
+      else
+        @images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=articles&class_type_id=#{article.id}"
+      end
+    end
   end
 
   # GET /articles/1

@@ -1,23 +1,26 @@
 <%= render 'layout' %>
-    <div class="container">
-      <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-12">
-          <div class="row">
-            <% @articles.each do |article| %>
-            <div class="col-xs-10 col-lg-10">
-              <h2><%= article.title %></h2>
-              <p><%= generate_abstract_tag(article.text) %></p>
-              <p>
-                <%= link_to "查看详情 »" , article_path(article),{class: "btn btn-default" , role: "button"} %>
-                <% if @manage %>
-                <%= link_to '删除', article_path(article),{method: :delete, class: "btn btn-default" , role: "button",data: { confirm: '删除后不可恢复，确认需要删除吗？' } }%>
-                <% end %>
-              </p>
-            </div><!--/.col-xs-10.col-lg-10-->
-            <% end %>           
-          </div><!--/row-->
-        </div><!--/.col-xs-12.col-sm-9-->
-      </div><!--/row-->
-    </div><!--/.container-->
+  <div id="news_index">   
+      <% @articles.each_with_index do |article,index|%>
+        <div class="item">
+          <div class="item_image">
+          <%= link_to raw("<img alt='#{article.title}' src=#{@images[index]}>"), article_path(article) %>
+          </div>
+          <div class="content">
+            <h2><%= article.title%></h2>
+            <p><%= article.created_at.strftime("%Y-%m-%d") %></p>
+            <h3><%= generate_abstract_tag(article.text,100) %></h3>
+            <p>
+            <%= link_to '了解更多 >', article_path(article) %> 
+            <% if @manage %>
+            | <%= link_to '删除', article_path(article),{method: :delete, class: "btn btn-default" , role: "button",data: { confirm: '删除后不可恢复，确认需要删除吗？' } }%>
+            <% end %>
+            </p>
 
+          </div>
+        </div>
+        <div class="show_line" style="background-image:url(<%= image_url "news/line-01.gif" %>)"></div>
+      <!-- <hr> -->
+      <% end %>
 
+</div>
+<div class="clearfix"></div>

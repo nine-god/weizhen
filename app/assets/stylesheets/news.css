@@ -1,13 +1,87 @@
-#news_layout_top1 {
+#news_index_layout_top1 {
     background: url("") no-repeat scroll center 0px;
     float: none;
     padding-top: 240px;
     width: 100%;
 }
-#news_layout_top2 {
+#news_index_layout_top2 {
   background: url("") no-repeat scroll center 0px;
     float: none;
     padding-top: 180px;
     width: 100%;
     max-height: 100%;
+}
+
+
+#news_index  {
+ 	max-width: 1200px;
+	margin: 0 auto 0 auto;
+	/*padding-bottom:50px;*/
+}
+#news_index .item {
+  height: 165px;
+  width:98%;
+  float:left;
+  /*border:1px solid #727171;*/
+  margin-top:1%;
+  margin-right:2%;
+  background: #fff;
+  max-height: 100%;
+  padding-left:35px;
+
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+}
+
+#news_index .item .item_image{
+  width:15%;
+  overflow:hidden;
+  float:left;
+}
+
+#news_index .item .content {
+  width:85%;
+  max-height: 100%;
+  float:left;
+}
+
+#news_index .item .content h2{
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  color: #000;
+  font-weight: normal;
+  font-size: 18px;
+  margin:10px;
+  padding: 0em;
+  font-weight: 500;
+  margin:10px;
+  margin-bottom:0px;
+  height: 30px;
+  max-height: 100%;
+}
+
+#news_index .item .content h3 {
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  font-size: 15px;
+  color:#5e5e5e;
+  margin:10px;
+  margin-bottom:0px;
+  height: 42px;
+  max-height: 100%;
+}
+
+#news_index .item .content p {
+  color: #ebb040;
+  font-size: 15px;
+  margin:10px;
+  margin-top:0px;
+  margin-bottom:0px;
+  height: 15px;
+  max-height: 100%;
+}
+#news_index .show_line{
+	float:left;
+	height: 10px;
+	width: 100%;
+	background: url(/images/news/line-01.gif) 0 50% repeat-x;
 }
