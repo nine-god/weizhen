@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :products
-  resources :home
+  resources :home , only: [:index, :show,:update,:edit] do
+    member do
+      get 'contact_us'
+    end
+  end
   get 'ueditor_resources/handle_file'
   post 'ueditor_resources/handle_file'
   get 'ueditor_resources/show_image'

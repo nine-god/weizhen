@@ -1,0 +1,13 @@
+#news_layout_top1 {
+    background: url("") no-repeat scroll center 0px;
+    float: none;
+    padding-top: 240px;
+    width: 100%;
+}
+#news_layout_top2 {
+  background: url("") no-repeat scroll center 0px;
+    float: none;
+    padding-top: 180px;
+    width: 100%;
+    max-height: 100%;
+}

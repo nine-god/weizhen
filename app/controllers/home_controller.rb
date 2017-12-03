@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!,only: [:update]
   def index
-    @home = Home.first
+    # @home = Home.first
     @articles = Article.all.order('created_at DESC').limit(3)
     @products = Product.all.order('created_at ASC').limit(3)
     @images=[]
@@ -17,6 +17,11 @@ class HomeController < ApplicationController
   def show
   	 
   end
+
+  def contact_us
+    # @home = Home.first
+  end
+
   def update
     respond_to do |format|
       if @home.update(home_params)

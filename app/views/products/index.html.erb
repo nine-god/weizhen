@@ -1,8 +1,7 @@
-
+<%= render 'layout' %>
 <div id="products_index">
   <div id="products">
     <div class="width75">
-      <div class="title">产品</div>
       <% @products.each_with_index do |product,index|%>
           <div class="item">
             <%= link_to raw("<img alt='#{product.name}' src=#{@images[index]}>"), product_path(product) %>
