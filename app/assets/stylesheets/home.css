@@ -108,8 +108,7 @@
     color: #000;
 }
 
-#products .item,
-#news .item {
+#products .item {
   width:31.5%;
   float:left;
   border:1px solid #727171;
@@ -117,40 +116,24 @@
   background: #fff;
 }
 
-#news .title {
-    color: #fff;
-}
-
 #products .item .content {
 	height: 13em;
   padding: 1.33333em;
 }
 
-#news .item .content {
-	height: 16.5em;
-	padding: 1.33333em;
-}
-
-#products .item .content h2,
-#news .item .content h2{
-	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
-	font-size: 1.666666em;
-	font-weight:bold;
-	padding-bottom: 0.5em;
+#products .item .content h2{
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  font-size: 1.666666em;
+  font-weight:bold;
+  padding-bottom: 0.5em;
     font-weight: 500;
     line-height: inherit;
     margin: 0px;
 }
-#news .item .content h2{
-	height: 81px;
-	font-size: 20.25px;;
-	padding: 0em;
-}
 
-#products .item .content h3, 
-#news .item .content h3 {
-	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
-	font-size: 15.1833px;
+#products .item .content h3{
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  font-size: 15.1833px;
     font-weight: 500;
     line-height: inherit;
     height: 6em;
@@ -158,11 +141,63 @@
     padding-bottom: 0.5em;
     margin:0;
 }
-#news .item .content h3 {
-    height: 6em;
+
+#news .item {
+  height: 130px;
+  width:48%;
+  float:left;
+  /*border:1px solid #727171;*/
+  margin-top:1%;
+  margin-right:2%;
+  background: #fff;
+  max-height: 100%;
 }
 
+#news .item .item_image{
+  width:30%;
+  overflow:hidden;
+  float:left;
+}
 
+#news .item .content {
+  width:70%;
+  max-height: 100%;
+  float:left;
+}
+
+#news .item .content h2{
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  color: #000;
+  font-weight: normal;
+  font-size: 18px;
+  margin:10px;
+  padding: 0em;
+  font-weight: 500;
+  margin:10px;
+  margin-bottom:0px;
+  height: 30px;
+  max-height: 100%;
+}
+
+#news .item .content h3 {
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Tahoma", "sans-serif", "微软雅黑";
+  font-size: 15px;
+  color:#5e5e5e;
+  margin:10px;
+  margin-bottom:0px;
+  height: 42px;
+  max-height: 100%;
+}
+
+#news .item .content p {
+  color: #ebb040;
+  font-size: 15px;
+  margin:10px;
+  margin-top:0px;
+  margin-bottom:0px;
+  height: 15px;
+  max-height: 100%;
+}
 
 
 

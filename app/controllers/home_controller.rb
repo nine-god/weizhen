@@ -2,18 +2,29 @@ class HomeController < ApplicationController
   before_action :authenticate_user!,only: [:update]
   def index
     # @home = Home.first
-    @articles = Article.all.order('created_at DESC').limit(3)
+    @articles = Article.all.order('created_at DESC').limit(4)
     @products = Product.all.order('created_at ASC').limit(3)
-    @images=[]
+    @product_images=[]
     @products.each_with_index do |product,index| 
         image = Image.where(id: product.image_id).order('updated_at desc').first
         if image.nil?
-          @images[index] = "/default_product.jpg"
+          @product_images[index] = "/default_product.jpg"
         else
-          @images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=products&class_type_id=#{product.id}"
+          @product_images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=products&class_type_id=#{product.id}"
         end
       end
+    @article_images=[]
+    @articles.each_with_index do |article,index| 
+      image = Image.where(id: article.image_id).order('updated_at desc').first
+      if image.nil?
+        @article_images[index] = "/default_article.jpg"
+      else
+        @article_images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=articles&class_type_id=#{article.id}"
+      end
     end
+
+  end
+
   def show
   	 
   end

@@ -15,7 +15,7 @@
     <div class="width75">
       <% @products.each_with_index do |product,index|%>
         <div class="item">
-          <%= link_to raw("<img alt='#{product.name}' src=#{@images[index]}>"), product_path(product) %>
+          <%= link_to raw("<img alt='#{product.name}' src=#{@product_images[index]}>"), product_path(product) %>
           <div class="content">
             <h2><%= product.name%></h2>
             <h3><%= generate_abstract_tag(product.profile,85) %></h3>
@@ -32,41 +32,43 @@
 
   <div id="box_main_sub3" style="background-image:url(<%= image_url "home/index/news_center.jpg" %>)"  >
   </div>
-  <div id="cao">
-    <div id="news">   
-      <div class="width75">                
-          <% @articles.each do |article|%>
-            <div class="item">
-              <div class="content">
-                <h2><%= article.title%></h2>
-                <h3><%= generate_abstract_tag(article.text,60) %></h3>
-                <p><%= link_to '了解更多 >', article_path(article) %></p>
-                </div>
-              </div>
-          <% end %>
-
-
+  <div id="news">   
+      <% @articles.each_with_index do |article,index|%>
+        <div class="item">
+          <div class="item_image">
+          <%= link_to raw("<img alt='#{article.title}' src=#{@article_images[index]}>"), article_path(article) %>
+          </div>
+          <div class="content">
+            <h2><%= article.title%></h2>
+            <p><%= article.created_at.strftime("%Y-%m-%d") %></p>
+            <h3><%= generate_abstract_tag(article.text,45) %></h3>
+            <p><%= link_to '了解更多 >', article_path(article) %></p>
+          </div>
         </div>
-      <div class="clear"></div>
-    </div>
+        <% if (index%2 == 1 ) %>
+          <div class="clear"></div>
+        <% end %>
+      <% end %>
+    
   </div>
+
 
   <div id="box_main_sub5" style="background-image:url(<%= image_url "home/index/about_us.jpg" %>)"> 
       <div id="box_main_sub5_sub1">
         <div>
           <div class="tu1">
-            <%= link_to image_tag("home/index/about_us_1.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/index/about_us_1.jpg", alt:  "logo" ), home_path(@home),{ } %>
           </div>
           <div class="tu2">
-            <%= link_to image_tag("home/index/about_us_2.jpg", alt:  "logo" ), root_path,{ } %>
-            <%= link_to image_tag("home/index/about_us_3.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/index/about_us_2.jpg", alt:  "logo" ), home_path(@home),{ } %>
+            <%= link_to image_tag("home/index/about_us_3.jpg", alt:  "logo" ), home_path(@home),{ } %>
           </div>
           <div class="tu3">
-            <%= link_to image_tag("home/index/about_us_4.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/index/about_us_4.jpg", alt:  "logo" ), home_path(@home),{ } %>
           </div>
           <div class="tu4">
-            <%= link_to image_tag("home/index/about_us_5.jpg", alt:  "logo" ), root_path,{ } %>
-            <%= link_to image_tag("home/index/about_us_6.jpg", alt:  "logo" ), root_path,{ } %>
+            <%= link_to image_tag("home/index/about_us_5.jpg", alt:  "logo" ), home_path(@home),{ } %>
+            <%= link_to image_tag("home/index/about_us_6.jpg", alt:  "logo" ), home_path(@home),{ } %>
           </div>
         </div>
         <div class="clear"></div>
