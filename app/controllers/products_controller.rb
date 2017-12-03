@@ -6,7 +6,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @limit = params[:limit]||6
+    @offset = params[:offset]||0
+    @total = Product.count
+    @products = Product.order("created_at desc").offset(@offset).limit(@limit)
     @manage = params[:manage]
     @images=[]
     @products.each_with_index do |product,index| 

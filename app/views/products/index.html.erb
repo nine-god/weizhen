@@ -18,7 +18,12 @@
           </div>
       <% end %>
     </div>
-    <div class="clear">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <ul class="pagination">
+          <%= generate_pagination(total: @total,offset: @offset , limit: @limit)%>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

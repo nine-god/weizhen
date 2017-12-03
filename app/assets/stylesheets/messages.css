@@ -1,8 +1,7 @@
-#message_new {
+#message_new ,
+#message_show{
  	max-width: 700px;
 	margin: 0 auto 0 auto;
-
-
 }
 #message_new .form-inline,
 #message_show .form-inline {

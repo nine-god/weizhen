@@ -4,7 +4,10 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.order('created_at desc')
+    @limit = params[:limit]||10
+    @offset = params[:offset]||0
+    @total = Article.count
+    @articles = Article.order("created_at desc").offset(@offset).limit(@limit)
     @manage = params[:manage]
     @images=[]
     @articles.each_with_index do |article,index| 
@@ -15,6 +18,9 @@ class ArticlesController < ApplicationController
         @images[index] = "ueditor_resources/show_image?filename=#{image.name}&class_type=articles&class_type_id=#{article.id}"
       end
     end
+
+
+
   end
 
   # GET /articles/1
