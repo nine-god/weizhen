@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :messages #, except:[:edits,:update]
   resources :articles
+  get 'users/sign_up',to: redirect('/404.html') #禁用注册功能
   devise_for :users
   resources :users
   resources :products
