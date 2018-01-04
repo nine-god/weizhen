@@ -31,11 +31,20 @@ nav#header  {
 	/*width:2%;	*/
 }
 
-nav#header ul  li  a:hover{
+nav#header ul  li a:hover
+{
 	color: #C0A062;
 	border-bottom-style: outset;
 	border-bottom-color:#C0A062;
 }
 
-
+nav#header ul  li.active a:link {
+	background-color:transparent;
+	background-image:none;
+	box-shadow:none;
+	border-bottom-style: outset;
+}
+nav#header ul  li.active a:visited {
+	color: #C0A062;
+}
 

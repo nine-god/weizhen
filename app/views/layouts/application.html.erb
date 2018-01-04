@@ -44,6 +44,7 @@
   <body>
 	<nav id="header" class="navbar navbar-default">
 	  <div class="container">
+	  <div class="row">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div id="logo_div" class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -60,13 +61,12 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-		        <li><%= link_to "首页" ,root_path , { title: "首页"}   %></li>
-		        <li><%= link_to "关于我们" ,home_path(@home)  %></li>
-		      	<li><%= link_to "产品中心" ,products_path  %></li>
-		      	<li><%= link_to "新闻中心" ,articles_path  %></li>
-		      	<li><%= link_to "在线留言" ,new_message_path  %></li>
-
-			    <li><%= link_to "联系我们" ,contact_us_home_path(@home)  %></li>
+		        <li id="nav_home" ><%= link_to "首页" ,root_path , { title: "首页"}   %></li>
+		        <li id="nav_about_us" ><%= link_to "关于我们" ,home_path(@home)  %></li>
+		      	<li id="nav_products" ><%= link_to "产品中心" ,products_path  %></li>
+		      	<li id="nav_news" ><%= link_to "新闻中心" ,articles_path  %></li>
+		      	<li id="nav_messages" ><%= link_to "在线留言" ,new_message_path  %></li>
+			    <li id="nav_contact_us" ><%= link_to "联系我们" ,contact_us_home_path(@home)  %></li>
 		      	<% if user_signed_in? %>
 				  <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="caret"></span></a>
@@ -85,6 +85,8 @@
 			            <li><%= link_to '公司信息管理',edit_home_path(@home) %></li>
 			            <li role="separator" class="divider"></li>
 			            <li><%= link_to '留言板',messages_path() %></li>
+        		      	<li><%= link_to "在线留言" ,new_user_password_path()  %></li>
+
 			            <li role="separator" class="divider"></li>
 			            <li><%= link_to "退出" , destroy_user_session_path , {method: "delete"}%></li>
 			          </ul>
@@ -92,6 +94,7 @@
 		      	<% end %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.row -->
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<% if notice %>
@@ -108,10 +111,12 @@
 	<% end %>
     <%= yield %>
     <hr>
-    <div class="row">
-	    <footer class="col-sm-12 footer">
-	        <p class="text-center" >版权所有 © 2000-2017 东莞市唯真金属材料压延有限公司，保留一切权利。</p>
-	        <p class="text-center" >粤ICP备xxxxxxxx号 粤公安备xxxxxxxx号</p>
-	    </footer>
+    <div class="container">
+	    <div class="row">
+		    <footer class="col-sm-12 footer">
+		        <p class="text-center" >版权所有 © 2017-2018 东莞市唯真金属材料压延有限公司，保留一切权利。</p>
+		        <p class="text-center" >粤ICP备xxxxxxxx号 粤公安备xxxxxxxx号</p>
+		    </footer>
+	    </div>
     </div>
   </body> 

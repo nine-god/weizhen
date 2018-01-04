@@ -32,3 +32,33 @@ catch(err)
   }
   // console.log(UE.getEditor('ueditor_container').getOpt('serverUrl'))
 };
+ function init_nav(){
+  // console.log(location.pathname)
+  switch(true)
+  {
+    case /\/$/.test(location.pathname):
+      var obj = document.getElementById("nav_home");
+      obj.setAttribute("class", "active");
+      break;
+    case /home\/\d$/.test(location.pathname):
+      var obj = document.getElementById("nav_about_us");
+      obj.setAttribute("class", "active");
+      break;
+    case /products/.test(location.pathname):
+      var obj = document.getElementById("nav_products");
+      obj.setAttribute("class", "active");
+      break;
+    case /articles/.test(location.pathname):
+      var obj = document.getElementById("nav_news");
+      obj.setAttribute("class", "active");
+      break;
+    case /messages/.test(location.pathname):
+      var obj = document.getElementById("nav_messages");
+      obj.setAttribute("class", "active");
+      break;
+    case /home\/\d\/contact_us/.test(location.pathname):
+      var obj = document.getElementById("nav_contact_us");
+      obj.setAttribute("class", "active");
+      break;
+  }
+ };
