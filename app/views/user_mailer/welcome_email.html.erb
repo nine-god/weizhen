@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      亲爱的 <%= @user %> ，您好！<br>
+    </p>
+    <p>
+      我们已收到您找回密码的请求，请输入验证码完成密码找回，验证码24小时内有效！<br>
+    </p>
+    <p>
+      您的验证码：<%= @id_code %>
+    </p>
+    <p>（如非本人操作，请立即登录 <a href="<%= @url %>">东莞市唯真金属材料压延有限公司</a> 官网更改密码以确保帐户安全。）</p>
+  </body>
+</html>

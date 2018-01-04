@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!,only: [:update]
   def index
+
+    # 让 UserMailer 在保存之后发送一封欢迎邮件
+        # UserMailer.welcome_email().deliver_later
+
     # @home = Home.first
     @articles = Article.all.order('created_at DESC').limit(4)
     @products = Product.all.order('created_at ASC').limit(3)
