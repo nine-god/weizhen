@@ -14,6 +14,8 @@ module Weizhen
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
     
+    config.i18n.default_locale = 'zh-CN'
+    
     config.autoload_paths << "#{Rails.root}/lib"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
